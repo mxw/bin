@@ -1,2 +1,3 @@
-# bin
-miscellaneous scripts that are potentially useful for others
+# mxw/bin
+
+accountability repo for my personal one-off scripts not being tooooo shitty
