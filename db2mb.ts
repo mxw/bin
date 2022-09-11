@@ -126,6 +126,18 @@ const manabox = good.map(item => [{
   'scryfall id': cards[item.mvid].id,
 }]).flat().filter(item => item.quantity > 0);
 
+const manabad = bad.map(item => [{
+  quantity: item.reg_qty,
+  'card name': item.card,
+  'set name': item.set,
+  foil: '',
+}, {
+  quantity: item.foil_qty,
+  'card name': item.card,
+  'set name': item.set,
+  foil: '1',
+}]).flat().filter(item => item.quantity > 0);
+
 const out_path = path.resolve(__dirname, out);
 const fail_path = path.resolve(__dirname, fail);
 
@@ -133,6 +145,6 @@ fs.mkdirSync(path.dirname(out_path), {recursive: true});
 fs.mkdirSync(path.dirname(fail_path), {recursive: true});
 
 fs.writeFileSync(out_path,  csv_stringify(manabox, {header: true}));
-fs.writeFileSync(fail_path, csv_stringify(bad, {header: true}));
+fs.writeFileSync(fail_path, csv_stringify(manabad, {header: true}));
 
 })();
