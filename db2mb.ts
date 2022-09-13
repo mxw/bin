@@ -79,7 +79,7 @@ type DeckedBuilderRecord = {
 const csv_path = path.resolve(__dirname, csv);
 
 const raw_contents = fs.readFileSync(csv_path);
-const fixed_contents = raw_contents.replaceAll(
+const fixed_contents = raw_contents.toString().replaceAll(
   'Time Spiral ""Timeshifted""',
   '"Time Spiral ""Timeshifted"""',
 );
